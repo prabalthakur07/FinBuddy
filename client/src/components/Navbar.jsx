@@ -1,44 +1,81 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
     <nav className="bg-gray-900 text-white px-8 py-4 shadow-lg">
+
       <div className="max-w-7xl mx-auto flex items-center justify-between">
 
         {/* Logo */}
-        <div className="text-3xl font-bold text-green-400">
+        <Link
+          to="/"
+          className="text-3xl font-bold text-green-400"
+        >
           FinBuddy
-        </div>
+        </Link>
 
         {/* Nav Links */}
         <ul className="hidden md:flex gap-8 text-lg font-medium">
-          <li className="hover:text-green-400 cursor-pointer transition">
+
+          <Link
+            to="/"
+            className="hover:text-green-400 transition"
+          >
             Home
-          </li>
+          </Link>
 
-          <li className="hover:text-green-400 cursor-pointer transition">
-            Features
-          </li>
-
-          <li className="hover:text-green-400 cursor-pointer transition">
+          <Link
+            to="/schemes"
+            className="hover:text-green-400 transition"
+          >
             Schemes
-          </li>
+          </Link>
 
-          <li className="hover:text-green-400 cursor-pointer transition">
-            About
-          </li>
+          <Link
+            to="/about"
+            className="hover:text-green-400 transition"
+          >About
+          </Link>
+
+          <Link
+            to="/dashboard"
+            className="hover:text-green-400 transition"
+            >
+            Dashboard
+            </Link>
+
+
+            
+
         </ul>
 
         {/* Buttons */}
         <div className="hidden md:flex gap-4">
-          <button className="border border-green-400 px-4 py-2 rounded-lg hover:bg-green-400 hover:text-black transition">
-            Login
-          </button>
 
-          <button className="bg-green-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-green-300 transition">
-            Register
-          </button>
+          <Link to="/login">
+
+            <button className="border border-green-400 px-4 py-2 rounded-lg hover:bg-green-400 hover:text-black transition">
+
+              Login
+
+            </button>
+
+          </Link>
+
+          <Link to="/register">
+
+            <button className="bg-green-400 text-black px-4 py-2 rounded-lg font-semibold hover:bg-green-300 transition">
+
+              Register
+
+            </button>
+
+          </Link>
+
         </div>
 
       </div>
+
     </nav>
   );
 }
