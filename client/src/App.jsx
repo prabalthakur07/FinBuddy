@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Layout from "./layouts/Layout";
+
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -11,25 +13,59 @@ import About from "./pages/About";
 function App() {
   return (
     <BrowserRouter>
-
       <Routes>
 
-        <Route path="/" element={<Home />} />
-
+        {/* Pages without Navbar */}
         <Route path="/login" element={<Login />} />
-
         <Route path="/register" element={<Register />} />
 
-        <Route path="/dashboard" element={<Dashboard />} />
+        {/* Pages with Navbar */}
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <Home />
+            </Layout>
+          }
+        />
 
-        <Route path="/expense" element={<Expense />} />
+        <Route
+          path="/dashboard"
+          element={
+            <Layout>
+              <Dashboard />
+            </Layout>
+          }
+        />
 
-        <Route path="/schemes" element={<Schemes />} />
+        <Route
+          path="/expense"
+          element={
+            <Layout>
+              <Expense />
+            </Layout>
+          }
+        />
 
-        <Route path="/about" element={<About />} />
+        <Route
+          path="/schemes"
+          element={
+            <Layout>
+              <Schemes />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/about"
+          element={
+            <Layout>
+              <About />
+            </Layout>
+          }
+        />
 
       </Routes>
-
     </BrowserRouter>
   );
 }
